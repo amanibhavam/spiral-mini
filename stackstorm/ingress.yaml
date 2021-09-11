@@ -16,11 +16,12 @@ metadata:
   name: stackstorm
   namespace: stackstorm
 spec:
-  tls: {}
+  tls:
+    certResolver: letsencrypt
   entryPoints:
     - websecure
   routes:
-  - match: HostRegexp(`stackstorm.defn.ooo`)
+  - match: Host(`stackstorm.defn.ooo`)
     kind: Rule
     services:
     - name: stackstorm-st2web
