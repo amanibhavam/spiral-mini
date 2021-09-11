@@ -1,0 +1,29 @@
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: traefik-forward-auth
+  namespace: stackstorm
+spec:
+  forwardAuth:
+    address: http://traefik-forward-auth.traefik.svc.cluster.local:4181
+    authResponseHeaders:
+      - X-Forwarded-User
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: stackstorm
+  namespace: stackstorm
+spec:
+  tls: {}
+  entryPoints:
+    - websecure
+  routes:
+  - match: HostRegexp(`stackstorm.defn.ooo`)
+    kind: Rule
+    services:
+    - name: stackstorm-st2web
+      port: 80
+    middlewares:
+      - name: traefik-forward-auth
