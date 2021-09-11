@@ -3,4 +3,3 @@ kind: Kustomization
 
 resources:
   - https://github.com/letfn/katt-stackstorm/base?ref=0.0.1
-  - ingress.yaml
