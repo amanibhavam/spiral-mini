@@ -3,9 +3,3 @@ kind: Kustomization
 
 resources:
   - https://github.com/letfn/katt-kuma/zone?ref=0.0.2
-
-patches:
-  - path: patch-nodeport-ingress.yaml
-    target:
-      kind: Service
-      name: kuma-ingress
