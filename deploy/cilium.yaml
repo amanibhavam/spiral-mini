@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: mini--cilium
+  namespace: argocd
+spec:
+  project: mini
+  source:
+    repoURL: 'https://github.com/amanibhavam/spiral-mini'
+    path: cilium
+    targetRevision: 0.0.1
+  destination:
+    name: mini
+    namespace: cilium
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true

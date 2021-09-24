@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: mini--local-path-provisioner
+  namespace: argocd
+spec:
+  project: mini
+  source:
+    repoURL: 'https://github.com/amanibhavam/spiral-mini'
+    path: local-path-provisioner
+    targetRevision: 0.0.1
+  destination:
+    name: mini
+    namespace: local-path-storage
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true

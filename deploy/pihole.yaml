@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: mini--pihole
+  namespace: argocd
+spec:
+  project: mini
+  source:
+    repoURL: 'https://github.com/amanibhavam/spiral-mini'
+    path: pihole
+    targetRevision: master
+  destination:
+    name: mini
+    namespace: pihole
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true

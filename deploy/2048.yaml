@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: mini--2048
+  namespace: argocd
+spec:
+  project: mini
+  source:
+    repoURL: 'https://github.com/letfn/katt-2048'
+    path: base
+    targetRevision: 0.0.1
+  destination:
+    name: mini
+    namespace: katt-2048
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
