@@ -9,4 +9,3 @@ patches:
     target:
       kind: Deployment
       name: kuma-control-plane
-
