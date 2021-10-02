@@ -11,10 +11,10 @@ spec:
     targetRevision: master
   destination:
     name: mini
-    namespace: cilium
+    namespace: kube-system
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
     syncOptions:
-    - CreateNamespace=true
+    - CreateNamespace=false
