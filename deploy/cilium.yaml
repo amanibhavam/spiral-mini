@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: 'https://github.com/amanibhavam/spiral-mini'
     path: cilium
-    targetRevision: 0.0.1
+    targetRevision: master
   destination:
     name: mini
     namespace: cilium
