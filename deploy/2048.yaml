@@ -6,9 +6,9 @@ metadata:
 spec:
   project: mini
   source:
-    repoURL: 'https://github.com/letfn/katt-2048'
-    path: base
-    targetRevision: 0.0.1
+    repoURL: 'https://github.com/amanibhavam/spiral-mini'
+    path: 2048
+    targetRevision: master
   destination:
     name: mini
     namespace: katt-2048
