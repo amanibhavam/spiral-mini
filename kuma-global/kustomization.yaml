@@ -3,4 +3,4 @@ kind: Kustomization
 
 resources:
   - https://github.com/letfn/katt-kuma/global?ref=0.0.7
-  - mesh-default.yaml
+    #- mesh-default.yaml
